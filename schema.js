@@ -6,7 +6,8 @@ const {
   GraphQLString,
   GraphQLBoolean,
   GraphQLList,
-  GraphQLSchema
+  GraphQLSchema,
+  GraphQLFloat
 } = require('graphql');
 
 
@@ -42,8 +43,32 @@ const RocketType = new GraphQLObjectType({
      rocket_id: { type: GraphQLString },
      rocket_name: { type: GraphQLString },
      rocket_type: { type: GraphQLString },
+     active: { type: GraphQLBoolean },
+     first_flight: { type: GraphQLString },
+     description: { type: GraphQLString },
+     height: { type: RocketHeightType },
+     mass: { type: RocketMassType },
+     flickr_images: { type: new GraphQLList(GraphQLString) }
   })
 });
+
+// Rocket Height type
+const RocketHeightType = new GraphQLObjectType({
+  name: 'RocketHeight',
+  fields: () => ({
+    meters: { type: GraphQLFloat },
+    feet: { type: GraphQLFloat }
+  })
+})
+
+// Rocket Mass Type
+const RocketMassType = new GraphQLObjectType({
+  name: 'RocketMass',
+  fields: () => ({
+    kg: { type: GraphQLInt },
+    lb: { type: GraphQLInt }
+  })
+})
 
 
 // Root Query

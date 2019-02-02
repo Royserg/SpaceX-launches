@@ -20,8 +20,7 @@ class Launches extends Component {
   render() {
     return (
       <>
-        <h1 className="display-4 my-3">Launches</h1>
-        <MissionKey />
+        <MissionKey textPos='Success' textNeg='Fail' />
         <Query query={LAUNCHES_QUERY}>
           {
             ({ loading, error, data }) => {

@@ -103,12 +103,12 @@ export default function Launch({ match }) {
                 </li>
               </ul>
               <LaunchLinks data={data.launch.links} />
-              <hr />
-              <Link to='/' className='btn btn-secondary'>Back</Link>
             </>
           )
         }}
       </Query>
+      <hr />
+      <Link to='/' className='btn btn-secondary mb-3'>Back</Link>
     </div>
   )
 }
